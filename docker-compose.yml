@@ -13,7 +13,7 @@ services:
     working_dir:
       /var/www
     command: /bin/bash -c "envsubst '$$project_name' < /default.conf > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
-    links:
+    depends_on:
       - php
   
   php:
